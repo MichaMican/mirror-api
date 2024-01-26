@@ -34,6 +34,7 @@ app.Run(async (context) =>
     }
     requestTelemetry?.Properties.Add("RequestContentTypeHeader", context.Request.Headers["Content-Type"]);
     requestTelemetry?.Properties.Add("RequestContentLengthHeader", context.Request.Headers["Content-Length"]);
+    requestTelemetry?.Properties.Add("RequestAuthorizationHeader", context.Request.Headers["Authorization"]);
     await context.Response.WriteAsync(rawRequestBody);
 });
 
